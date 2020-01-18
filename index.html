@@ -31,8 +31,8 @@
                 </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i> Search</button>
+                <input class="form-control mr-sm-2" id="search-query" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" id="search-button" type="submit"><i class="fas fa-search"></i> Search</button>
                 </form>
             </div>
         </nav>
@@ -40,8 +40,26 @@
 
     <main role="main" class="flex-shrink-0">
         <div class="container">
-            <h1 class="mt-5">Search Results</h1>
+            <h2 class="mt-5">Search Results</h2>
             <div id="results"></div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                        <div class="card-body">
+                        <p class="card-text">Recipe Title</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Details</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Add to list</button>
+                            </div>
+                            <small class="text-muted">Category</small>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
         </div>
     </main>
                   
