@@ -54,6 +54,7 @@ function getRecipeInfo(id) {
 
     $.ajax(settings).then(function (response) {
         console.log(response);
+        renderDetails(response);
         //  do somethin with the response:
         return response;
     });
