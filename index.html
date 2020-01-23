@@ -20,7 +20,7 @@
 
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#"><i class="fas fa-utensils"></i> Recipes Finder</a>
+            <a id="home-logo" class="navbar-brand" href="#"><i class="fas fa-utensils"></i> Recipes Finder</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -47,38 +47,43 @@
     </header>
 
     <main role="main" class="flex-shrink-0">
-        <div class="container">
+        <div id="homepage" class="container">
+            <h1>Welcome to Recipe Finder</h1>
+        </div>
+        <div id="search-results" class="container">
             <h2 class="mt-5">Search Results</h2>
             <div id="results" class="row"></div>
 
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
+                <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
                         <div class="modal-body">
                             <div class="row">
                                 <div id="detail-thumbnail" class="col-4">
                                 </div>
-                                <div id="ingredients" class="col-8">
+                                <div class="col-8">
+                                    <h2>Ingredients:</h2>
+                                    <ul id="ingredients"></ul>
+                                    <h2>Directions:</h2>
                                     <ol id="instructions"></ol>
                                 </div>
                             </div>
-
-
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-primary">Add to Shopping List</button>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- /Modal -->
 
         </div>
     </main>

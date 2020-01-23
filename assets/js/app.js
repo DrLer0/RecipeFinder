@@ -1,9 +1,10 @@
 //RECIPE FINDER APP PROJECT CODE
 
 var searchQuery = "";
-//var resultsArray = ['apple', 'banana', 'orange', 'strawberry'];
 
 function renderResults(response) {
+    $('#homepage').hide();
+    $('#search-results').show();
     $('#results').empty();
     console.log(response.results);
     var resultsArray = response.results;
@@ -32,6 +33,7 @@ function renderDetails(response) {
     var detailsIngredients = response.extendedIngredients;
     var instructions = response.instructions.split(".");
 
+    $("#instructions").empty();
     for (let i = 0; i < instructions.length; i++) {
         var lineDiv = $(`<li>${instructions[i]}.</li>`)
         $("#instructions").append(lineDiv);
@@ -39,11 +41,12 @@ function renderDetails(response) {
 
 
     var detailsThumbnail = `<img class="details-thumbnail" src="${detailsImg}">`;
-    $('#detail-thumbnail').append(detailsThumbnail);
+    $('#detail-thumbnail').empty().append(detailsThumbnail);
 
-    for (let index = 0; index < detailsIngredients.length; index++) {
+    $('#ingredients').empty();
+    for (let i = 0; i < detailsIngredients.length; i++) {
         // option 1: sperate the ingredient by name, amount, unit
-        const detail = detailsIngredients[index];
+        const detail = detailsIngredients[i];
         // const name = detail.name;
         // const amount = detail.amount;
         // const unit = detail.unit;
@@ -57,6 +60,7 @@ function renderDetails(response) {
 
 }
 
+// Search input entry - pulls response for query
 $('#search-button').on('click', function() {
     event.preventDefault();
     searchQuery = $('#search-query').val().trim();
@@ -64,7 +68,19 @@ $('#search-button').on('click', function() {
     //renderResults(searchQuery);
 });
 
+$('#home-logo').on('click', function() {
+    event.preventDefault();
+    $('#homepage').show();
+    $('#search-results').hide();
+    $('#results').empty();
+});
+
+// Gets ID from item and gets recipe information response
 $(document).on('click', '.details-btn', function() {
     var id = $(this).attr("id");
     getRecipeInfo(id);
+});
+
+$(document).ready(function() {
+    $('#search-results').hide();
 });
