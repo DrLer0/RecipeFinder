@@ -26,7 +26,7 @@ function searchRecipes(query, offset) {
 
     // call api and wait for response
     $.ajax(settings).then(function (response) {
-        //console.log(response);
+        console.log(response);
         //  do something with the response:
         renderResults(response);
         return response;
