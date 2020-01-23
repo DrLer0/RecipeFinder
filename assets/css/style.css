@@ -1,18 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Serif&display=swap');
+
+body {
+    font-family: 'PT Serif', serif;
+}
+
 .container {
     width: auto;
     max-width: 1080px;
     padding: 0 15px;
-  }
+}
   
 main {
     margin-bottom: 100px;
 }
 .footer {
-    background-color: #f5f5f5;
+    background-color: #fed817;
     position: fixed;
     bottom: 0;
     display: block;
     width: 100%;
+}
+
+.modal-backdrop {
+    background-color:#fff;
+    opacity:0.85 !important;
 }
 
 .thumbnail {
