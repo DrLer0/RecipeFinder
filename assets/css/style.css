@@ -14,3 +14,7 @@ main {
     display: block;
     width: 100%;
 }
+
+.thumbnail{
+    height: 200px;
+}
