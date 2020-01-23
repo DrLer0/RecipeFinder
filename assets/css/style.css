@@ -15,6 +15,10 @@ main {
     width: 100%;
 }
 
-.thumbnail{
+.thumbnail {
     height: 200px;
+}
+
+.details-thumbnail {
+    width: 100%;
 }
