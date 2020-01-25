@@ -4,8 +4,14 @@
  * @param {string} location - location to look around in
  */
 
+var restaurantArray = [];
+
 function searchRestaurants(foodItem, location) {
-    var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=" + foodItem + "&location=" + location;
+    // console.log(location);
+    if (location == "") {
+        location = "California";
+    }
+    var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?categories=restaurants&term=" + foodItem + "&location=" + location;
 
     $.ajax({
         url: queryURL,
@@ -21,11 +27,11 @@ function searchRestaurants(foodItem, location) {
             if (totalresults > 0) {
                 // Display a header on the page with the number of results
                 $('#results').append('<h5>We discovered ' + totalresults + ' results!</h5>');
-                console.log(data.businesses);
+                // console.log(data.businesses);
                 // Itirate through the JSON array of 'businesses' which was returned by the API
                 $.each(data.businesses, function(i, item) {
                     // Store each business's object in a variable
-                    var restaurants = {
+                    var restaurant = {
                         id: item.id,
                         phone: item.display_phone,
                         image: item.image_url,
@@ -35,14 +41,16 @@ function searchRestaurants(foodItem, location) {
                         address: item.location.address1,
                         city: item.location.city,
                         state: item.location.state,
-                        zipcode: item.location.zip_code
+                        zipcode: item.location.zip_code,
+                        url: item.url
                     }
-                    return restaurants;
+                    restaurantArray.push(restaurant);
                 });
+
             } else {
                 // If our results are 0; no businesses were returned by the JSON therefor we display on the page no results were found
                 $('#results').append('<h5>We discovered no results!</h5>');
-                var restaurants = {
+                var restaurant = {
                     id: null,
                     phone: null,
                     image: null,
@@ -54,10 +62,17 @@ function searchRestaurants(foodItem, location) {
                     state: null,
                     zipcode: null
                 }
-                return restaurants;
+                restaurantArray.push(restaurant);
             }
         }
+    }).then(function() {
+        console.log("this is the final size:", restaurantArray.length);
+        renderRestaurants(restaurantArray);
     });
+}
+
+function getSize() {
+    console.log("size", restaurantArray.length);
 }
 
 // console.log(searchRestaurants("banana", "boston"));

@@ -6,7 +6,7 @@ function renderResults(response) {
     $('#homepage').hide();
     $('#search-results').show();
     $('#results').empty();
-    console.log(response.results);
+    // console.log(response.results);
     var resultsArray = response.results;
     for (let i = 0; i < resultsArray.length; i++) {
         var resultImg = "https://spoonacular.com/recipeImages/" + resultsArray[i].image;
@@ -19,6 +19,38 @@ function renderResults(response) {
 
         resultDiv.addClass('recipe-result');
         resultDiv.attr('data-name', resultsArray[i]);
+        // resultItem.text(resultsArray[i]);
+        resultDiv.append(resultTemplate);
+        $('#results').append(resultDiv);
+    }
+};
+
+function renderRestaurants(restaurants) {
+    // console.log("length here", restaurants[19]);
+    $('#homepage').hide();
+    $('#search-results').show();
+    $('#results').empty();
+    console.log(restaurants);
+    for (let i = 0; i < restaurants.length; i++) {
+        var resultDiv = $('<div class="col-md-4">');
+        var resultTemplate = `
+        <div class="card mb-4 shadow-sm">
+            <img class="thumbnail" src=${restaurants[i].image}>
+            <div class="card-body">
+                <p class="card-text">${restaurants[i].name}</p>
+                <p class="card-text">${restaurants[i].rating}</p>
+                <p class="card-text">${restaurants[i].reviewcount}</p>
+                <p class="card-text">${restaurants[i].address}</p>
+                <p class="card-text">${restaurants[i].city}, ${restaurants[i].state}, ${restaurants[i].zipcode}</p>
+                <p class="card-text">${restaurants[i].phone}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                        <a href="${restaurants[i].url}">Open in Yelp</a>
+                </div>
+            </div>
+        </div>`;
+
+        // resultDiv.addClass('recipe-result');
+        resultDiv.attr('data-name', restaurants[i].name);
         // resultItem.text(resultsArray[i]);
         resultDiv.append(resultTemplate);
         $('#results').append(resultDiv);
@@ -66,6 +98,15 @@ $('#search-button').on('click', function() {
     searchQuery = $('#search-query').val().trim();
     searchRecipes(searchQuery);
     //renderResults(searchQuery);
+});
+
+$('#yelp-button').on('click', function() {
+    event.preventDefault();
+    var foodItem = $('#search-query').val().trim();
+    var location = $('#location-query').val().trim();
+    searchRestaurants(foodItem, location);
+    // console.log("here", restaurants);
+    // renderRestaurants(restaurants);
 });
 
 $('#home-logo').on('click', function() {
