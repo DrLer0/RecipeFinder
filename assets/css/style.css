@@ -63,3 +63,13 @@ main {
 #YelpResults {
     background-color: rgba(220, 217, 20, 0.329);
 }
+
+.fa-trash-alt{
+    opacity: 0.7;
+}
+
+.fa-trash-alt:hover{
+    cursor: pointer;
+    opacity: 1;
+}
+
