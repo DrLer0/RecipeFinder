@@ -13,7 +13,7 @@
     <script src="assets/js/function_recipes.js"></script>
     <script src="assets/js/yelpFunction.js"></script>
     <title>Recipes Finder</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -41,12 +41,10 @@
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" id="search-query" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control mr-sm-2" id="location-query" type="search" placeholder="Location" aria-label="Location">
                     <button class="btn btn-outline-success my-2 my-sm-0" id="search-button" type="submit"><i class="fas fa-search"></i> Search</button>
                 </form>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" id="location-query" type="search" placeholder="Location" aria-label="Location">
-                    <button class="btn btn-outline-success my-2 my-sm-0" id="yelp-button" type="submit"><i class="fas fa-search"></i> Yelp!</button>
-                </form>
+
             </div>
         </nav>
     </header>
@@ -58,35 +56,43 @@
                     <h1>Welcome to Recipe Finder</h1>
                     <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
                     <p>
-                    <a href="#" class="btn btn-primary my-2">Main call to action</a>
-                    <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+                        <a href="#" class="btn btn-primary my-2">Main call to action</a>
+                        <a href="#" class="btn btn-secondary my-2">Secondary action</a>
                     </p>
                 </div>
             </section>
         </div>
         <div id="search-results" class="container">
             <h2 class="mt-5">Search Results</h2>
-            <div id="results" class="row"></div>
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <div class="row">
+                <div class="col">
+                    <div id="recipeResults" class="row">
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row">
-                                <div id="detail-thumbnail" class="col-4">
-                                </div>
-                                <div class="col-8">
-                                    <h2>Ingredients:</h2>
-                                    <ul id="ingredients"></ul>
-                                    <h2>Directions:</h2>
-                                    <ol id="instructions"></ol>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div id="detail-thumbnail" class="col-4">
+                                            </div>
+                                            <div class="col-8">
+                                                <h2>Ingredients:</h2>
+                                                <ul id="ingredients"></ul>
+                                                <h2>Directions:</h2>
+                                                <ol id="instructions"></ol>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Add to Shopping List</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -94,11 +100,15 @@
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button id="add-list-button" type="button" class="btn btn-primary">Add to Shopping List</button>
                         </div>
+                        <!-- /Modal -->
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="YelpResults" class="row">
+
                     </div>
                 </div>
             </div>
-            <!-- /Modal -->
-
         </div>
     </main>
 

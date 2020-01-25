@@ -5,11 +5,11 @@ body {
 
 .container {
     width: auto;
-    max-width: 1080px;
+    /* max-width: 1080px; */
+    max-width: 90%;
     padding: 0 15px;
 }
 
-  
 main {
     margin-bottom: 100px;
 }
@@ -30,8 +30,8 @@ main {
 }
 
 .modal-backdrop {
-    background-color:#fff;
-    opacity:0.85 !important;
+    background-color: #fff;
+    opacity: 0.85 !important;
 }
 
 .thumbnail {
@@ -58,4 +58,8 @@ main {
 
 #instructions li {
     margin-bottom: 16px;
+}
+
+#YelpResults {
+    background-color: rgba(220, 217, 20, 0.329);
 }
