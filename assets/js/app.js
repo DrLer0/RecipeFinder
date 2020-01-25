@@ -16,14 +16,27 @@ function renderResults(response) {
         var resultCooktime = resultsArray[i].readyInMinutes;
         var resultId = resultsArray[i].id;
 
-        var resultDiv = $('<div class="col-md-4">');
-        var resultTemplate = `<div class="card mb-4 shadow-sm"><img class="thumbnail" src="${resultImg}"><div class="card-body"><p class="card-text">${resultTitle}</p><div class="d-flex justify-content-between align-items-center"><div class="btn-group"><button type="button" id="${resultId}" class="details-btn btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#exampleModal">Details</button></div><small class="text-muted">Cook time: ${resultCooktime} mins</small></div></div></div>`;
+        var resultDiv = $('<div class="col">');
+        var resultTemplate = `
+        <div class="card mb-4 shadow-sm">
+            <img class="thumbnail" src="${resultImg}">
+            <div class="card-body">
+                <p class="card-text">${resultTitle}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <button type="button" id="${resultId}" class="details-btn btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#exampleModal">Details</button>
+                        <button type="button" id="add-list-btn" class="btn btn-sm btn-outline-secondary">Add to list</button>
+                    </div>
+                <small class="text-muted">Cook time: ${resultCooktime} mins</small>
+                </div>
+            </div>
+        </div>`;
 
         resultDiv.addClass("recipe-result");
         resultDiv.attr("data-name", resultsArray[i]);
         // resultItem.text(resultsArray[i]);
         resultDiv.append(resultTemplate);
-        $("#results").append(resultDiv);
+        $('#recipeResults').append(resultDiv);
     }
 }
 
@@ -34,14 +47,14 @@ function renderRestaurants(restaurants) {
     $("#results").empty();
     console.log(restaurants);
     for (let i = 0; i < restaurants.length; i++) {
-        var resultDiv = $('<div class="col-md-4">');
+        var resultDiv = $('<div class="col">');
         var resultTemplate = `
         <div class="card mb-4 shadow-sm">
             <img class="thumbnail" src=${restaurants[i].image}>
             <div class="card-body">
                 <p class="card-text">${restaurants[i].name}</p>
-                <p class="card-text">${restaurants[i].rating}</p>
-                <p class="card-text">${restaurants[i].reviewcount}</p>
+                <p class="card-text">${restaurants[i].rating}/5 Stars</p>
+                <p class="card-text">${restaurants[i].reviewcount} Reviews</p>
                 <p class="card-text">${restaurants[i].address}</p>
                 <p class="card-text">${restaurants[i].city}, ${restaurants[i].state}, ${restaurants[i].zipcode}</p>
                 <p class="card-text">${restaurants[i].phone}</p>
@@ -55,7 +68,7 @@ function renderRestaurants(restaurants) {
         resultDiv.attr("data-name", restaurants[i].name);
         // resultItem.text(resultsArray[i]);
         resultDiv.append(resultTemplate);
-        $("#results").append(resultDiv);
+        $('#YelpResults').append(resultDiv);
     }
 }
 
@@ -119,6 +132,10 @@ $("#search-button").on("click", function() {
         .val()
         .trim();
     searchRecipes(searchQuery);
+
+    var foodItem = $('#search-query').val().trim();
+    var location = $('#location-query').val().trim();
+    searchRestaurants(foodItem, location);
     //renderResults(searchQuery);
 });
 
