@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=PT+Serif&display=swap');
-
 body {
     font-family: 'PT Serif', serif;
 }
@@ -9,21 +8,24 @@ body {
     max-width: 1080px;
     padding: 0 15px;
 }
-  
+
 main {
     margin-bottom: 100px;
 }
+
 .footer {
     background-color: #fed817;
     position: fixed;
     bottom: 0;
     display: block;
     width: 100%;
+    max-height: 250px;
+    overflow: scroll;
 }
 
 .modal-backdrop {
-    background-color:#fff;
-    opacity:0.85 !important;
+    background-color: #fff;
+    opacity: 0.85 !important;
 }
 
 .thumbnail {
@@ -32,4 +34,22 @@ main {
 
 .details-thumbnail {
     width: 100%;
+}
+
+.list-closed {
+    height: 100px;
+}
+
+.list-open {
+    height: 250px;
+}
+
+#collapse-btn {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+}
+
+#instructions li {
+    margin-bottom: 16px;
 }

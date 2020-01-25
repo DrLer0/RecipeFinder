@@ -58,8 +58,8 @@
                     <h1>Welcome to Recipe Finder</h1>
                     <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
                     <p>
-                    <a href="#" class="btn btn-primary my-2">Main call to action</a>
-                    <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+                        <a href="#" class="btn btn-primary my-2">Main call to action</a>
+                        <a href="#" class="btn btn-secondary my-2">Secondary action</a>
                     </p>
                 </div>
             </section>
@@ -92,7 +92,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Add to Shopping List</button>
+                            <button id="add-list-button" type="button" class="btn btn-primary">Add to Shopping List</button>
                         </div>
                     </div>
                 </div>
@@ -102,14 +102,11 @@
         </div>
     </main>
 
-    <footer class="footer mt-auto py-3">
+    <footer class="footer mt-auto py-3 list-closed">
         <div class="container">
-            <div>Shopping List</div>
+            <h3>Shopping List <a href="#" id="clear-list">Clear List</a></h3>
             <div id="shopping-list"></div>
-
-            <i class="fas fa-times"></i>
-
-            <i class="fas fa-trash-alt"></i>
+            <button id="collapse-btn">Toggle</button>
         </div>
     </footer>
 
