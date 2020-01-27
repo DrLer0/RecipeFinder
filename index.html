@@ -33,15 +33,17 @@
                     Browse Categories
                     </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Item 1</a>
-                            <a class="dropdown-item" href="#">Item 2</a>
-                            <a class="dropdown-item" href="#">Item 3</a>
+                            <a class="dropdown-item" href="#">Appetizers &amp; Snacks</a>
+                            <a class="dropdown-item" href="#">Breakfast &amp; Brunch</a>
+                            <a class="dropdown-item" href="#">Desserts</a>
+                            <a class="dropdown-item" href="#">Dinner</a>
+                            <a class="dropdown-item" href="#">Drinks</a>
                         </div>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" id="search-query" type="search" placeholder="Search" aria-label="Search">
-                    <input class="form-control mr-sm-2" id="location-query" type="search" placeholder="Location" aria-label="Location">
+                    <input class="form-control mr-sm-2" id="location-query" type="search" placeholder="Location (optional)" aria-label="Location">
                     <button class="btn btn-outline-success my-2 my-sm-0" id="search-button" type="submit"><i class="fas fa-search"></i> Search</button>
                 </form>
 
@@ -51,62 +53,58 @@
 
     <main role="main" class="flex-shrink-0">
         <div id="homepage" class="container">
-            <section class="jumbotron text-center">
+            <section class="jumbotron text-left">
                 <div class="container">
                     <h1>Welcome to Recipe Finder</h1>
-                    <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-                    <p>
+                    <p class="lead text-muted">Find inspiration for your next meal. Get recipe suggestions and restaurant recommendations!</p>
+                    <!--<p>
                         <a href="#" class="btn btn-primary my-2">Main call to action</a>
                         <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-                    </p>
+                    </p>-->
                 </div>
             </section>
         </div>
         <div id="search-results" class="container">
-            <h2 class="mt-5">Search Results</h2>
+            <h2 class="mt-5">Search Results for "<span id="result-text"></span>"</h2>
             <div class="row">
-                <div class="col">
+                <div class="col-8">
                     <div id="recipeResults" class="row">
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <div id="detail-thumbnail" class="col-4">
-                                            </div>
-                                            <div class="col-8">
-                                                <h2>Ingredients:</h2>
-                                                <ul id="ingredients"></ul>
-                                                <h2>Directions:</h2>
-                                                <ol id="instructions"></ol>
-                                            </div>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div id="detail-thumbnail" class="col-4">
+                                        </div>
+                                        <div class="col-8">
+                                            <h2>Ingredients:</h2>
+                                            <ul id="ingredients"></ul>
+                                            <h2>Directions:</h2>
+                                            <ol id="instructions"></ol>
                                         </div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Add to Shopping List</button>
-                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" id="add-list-button" class="btn btn-primary">Add to Shopping List</button>
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button id="add-list-button" type="button" class="btn btn-primary">Add to Shopping List</button>
-                        </div>
-                        <!-- /Modal -->
                     </div>
+                    <!-- /Modal -->
                 </div>
-                <div class="col">
-                    <div id="YelpResults" class="row">
-
-                    </div>
+                <div class="col-4">
+                    <h4 class="yelpResults-header"><i class="fab fa-yelp"></i> Yelp Suggestions</h3>
+                        <div id="YelpResults" class="row">
+                        </div>
                 </div>
             </div>
         </div>
@@ -114,9 +112,9 @@
 
     <footer class="footer mt-auto py-3 list-closed">
         <div class="container">
-            <h3>Shopping List <a href="#" id="clear-list">Clear List</a></h3>
+            <h3><i class="fas fa-clipboard-list"></i> Shopping List <a href="#" id="clear-list">Clear List</a></h3>
             <div id="shopping-list"></div>
-            <button id="collapse-btn">Toggle</button>
+            <button id="collapse-btn"><i class="fas fa-arrows-alt-v"></i></button>
         </div>
     </footer>
 
