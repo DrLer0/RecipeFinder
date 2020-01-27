@@ -196,3 +196,8 @@ function displayShoppingList() {
     }
     $("footer").removeClass("list-closed").addClass("list-open");
 }
+
+
+$(document).on("click",".fa-trash-alt", function(){
+    $(this).parent().remove();
+})
