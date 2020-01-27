@@ -1,12 +1,15 @@
-//RECIPE FINDER APP PROJECT CODE
+// RECIPE FINDER APP PROJECT CODE
 
+// Global Variables
 var searchQuery = "";
 var detailsIngredients;
+var shoppingList = [];
 
 function renderResults(response) {
     $("#homepage").hide();
     $("#search-results").show();
-    $("#results").empty();
+    $("#recipeResults").empty();
+    $('#result-text').text(searchQuery);
     // console.log(response.results);
     var resultsArray = response.results;
     for (let i = 0; i < resultsArray.length; i++) {
@@ -35,7 +38,7 @@ function renderResults(response) {
         resultDiv.attr("data-name", resultsArray[i]);
         // resultItem.text(resultsArray[i]);
         resultDiv.append(resultTemplate);
-        $('#recipeResults').append(resultDiv);
+        $('#recipeResults').prepend(resultDiv);
     }
 }
 
@@ -43,7 +46,7 @@ function renderRestaurants(restaurants) {
     // console.log("length here", restaurants[19]);
     $("#homepage").hide();
     $("#search-results").show();
-    $("#results").empty();
+    $("#YelpResults").empty();
     console.log(restaurants);
     for (let i = 0; i < restaurants.length; i++) {
         var resultDiv = $('<div class="col-12">');
@@ -58,7 +61,7 @@ function renderRestaurants(restaurants) {
                 <p class="card-text">${restaurants[i].city}, ${restaurants[i].state}, ${restaurants[i].zipcode}</p>
                 <p class="card-text">${restaurants[i].phone}</p>
                 <div class="d-flex justify-content-between align-items-center">
-                        <a href="${restaurants[i].url}">Open in Yelp</a>
+                        <a href="${restaurants[i].url}" class="button">Open in Yelp</a>
                 </div>
             </div>
         </div>`;
@@ -67,7 +70,7 @@ function renderRestaurants(restaurants) {
         resultDiv.attr("data-name", restaurants[i].name);
         // resultItem.text(resultsArray[i]);
         resultDiv.append(resultTemplate);
-        $('#YelpResults').append(resultDiv);
+        $('#YelpResults').prepend(resultDiv);
     }
 }
 
@@ -110,7 +113,7 @@ function renderDetails(response) {
     // set initial add-to-list button
     $("button #add-to-list").attr("data-name", detailsId);
     $("#add-list-button").text("Add to Shopping List");
-    $("#add-list-button").css("background", "blue");
+    $("#add-list-button").css("background-color", "#007bff");
 
     // Gets Id from item and adds ingredients to list
     $("#add-list-button").on("click", function() {
@@ -174,13 +177,7 @@ $(document).on("click", ".details-btn", function() {
     getRecipeInfo(id);
 });
 
-$(document).ready(function() {
-    $("#search-results").hide();
-});
-
-var shoppingList = [];
-
-
+//populate shopping list
 function displayShoppingList() {
     $("#shopping-list").empty();
     // do something for the shoppingList
@@ -194,10 +191,20 @@ function displayShoppingList() {
             $("#shopping-list").append(item);
         }
     }
+    //open list when populated
     $("footer").removeClass("list-closed").addClass("list-open");
+    //show clear button when populated
+    if ($("#shopping-list").text().length == 0) {
+        $('#clear-list').hide();
+    } else {
+        $('#clear-list').show();
+    }
 }
-
 
 $(document).on("click",".fa-trash-alt", function(){
     $(this).parent().remove();
 })
+
+$(document).ready(function() {
+    $("#search-results").hide();
+});
