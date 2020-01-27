@@ -29,7 +29,7 @@ function renderResults(response) {
                     <div class="btn-group">
                         <button type="button" id="${resultId}" class="details-btn btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#exampleModal">Details</button>
                     </div>
-                <small class="text-muted">Cook time: ${resultCooktime} mins</small>
+                <small class="text-muted"><i class="far fa-clock"></i> Cook time: ${resultCooktime} mins</small>
                 </div>
             </div>
         </div>`;
@@ -54,14 +54,13 @@ function renderRestaurants(restaurants) {
         <div class="card mb-4 shadow-sm">
             <img class="thumbnail" src=${restaurants[i].image}>
             <div class="card-body">
-                <p class="card-text">${restaurants[i].name}</p>
-                <p class="card-text">${restaurants[i].rating}/5 Stars</p>
-                <p class="card-text">${restaurants[i].reviewcount} Reviews</p>
+                <p class="card-text"><b><u>${restaurants[i].name}</u></b></p>
+                <p class="card-text">${restaurants[i].rating}/5 Stars <small>(${restaurants[i].reviewcount} Reviews)</small></p>
                 <p class="card-text">${restaurants[i].address}</p>
                 <p class="card-text">${restaurants[i].city}, ${restaurants[i].state}, ${restaurants[i].zipcode}</p>
                 <p class="card-text">${restaurants[i].phone}</p>
                 <div class="d-flex justify-content-between align-items-center">
-                        <a href="${restaurants[i].url}" class="button">Open in Yelp</a>
+                    <a href="${restaurants[i].url}" class="button" target="_blank">Open in Yelp</a>
                 </div>
             </div>
         </div>`;
