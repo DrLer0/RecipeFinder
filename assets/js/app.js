@@ -16,7 +16,7 @@ function renderResults(response) {
         var resultCooktime = resultsArray[i].readyInMinutes;
         var resultId = resultsArray[i].id;
 
-        var resultDiv = $('<div class="col">');
+        var resultDiv = $('<div class="col-6">');
         var resultTemplate = `
         <div class="card mb-4 shadow-sm">
             <img class="thumbnail" src="${resultImg}">
@@ -25,7 +25,6 @@ function renderResults(response) {
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                         <button type="button" id="${resultId}" class="details-btn btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#exampleModal">Details</button>
-                        <button type="button" id="add-list-btn" class="btn btn-sm btn-outline-secondary">Add to list</button>
                     </div>
                 <small class="text-muted">Cook time: ${resultCooktime} mins</small>
                 </div>
@@ -47,7 +46,7 @@ function renderRestaurants(restaurants) {
     $("#results").empty();
     console.log(restaurants);
     for (let i = 0; i < restaurants.length; i++) {
-        var resultDiv = $('<div class="col">');
+        var resultDiv = $('<div class="col-12">');
         var resultTemplate = `
         <div class="card mb-4 shadow-sm">
             <img class="thumbnail" src=${restaurants[i].image}>
