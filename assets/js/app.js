@@ -1,5 +1,6 @@
 // RECIPE FINDER APP PROJECT CODE
 
+
 // Global Variables
 var searchQuery = "";
 var detailsIngredients;
