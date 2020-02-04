@@ -21,7 +21,7 @@ function renderResults(response) {
 
         var resultDiv = $('<div class="col-6">');
         var resultTemplate = `
-        <div class="card mb-4 shadow-sm">
+        <div class="card mb-4 shadow-sm fly">
             <img class="thumbnail" src="${resultImg}">
             <div class="card-body">
                 <p class="card-text">${resultTitle}</p>
@@ -51,7 +51,7 @@ function renderRestaurants(restaurants) {
     for (let i = 0; i < restaurants.length; i++) {
         var resultDiv = $('<div class="col-12">');
         var resultTemplate = `
-        <div class="card mb-4 shadow-sm">
+        <div class="card mb-4 shadow-sm fly">
             <img class="thumbnail" src=${restaurants[i].image}>
             <div class="card-body">
                 <p class="card-text"><b><u>${restaurants[i].name}</u></b></p>
