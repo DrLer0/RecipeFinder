@@ -1,4 +1,4 @@
-# Unit8-Project1
+# Project 1 - Recipes Finder
 Web app for people to search for food cravings and returns both recipes and restaurants nearby. Recipes are pulled from Spoonacular API and restaurants are pulled from Yelp API. If people choose recipes, they can view the recipe, instructions, and ingredients. Also, they can add ingredients to a shopping list for them to keep track of items they need.
 
 ## Technologies used:
