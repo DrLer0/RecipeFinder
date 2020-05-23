@@ -1,11 +1,13 @@
 // RECIPE FINDER APP PROJECT CODE
 
+
 // Global Variables
 var searchQuery = "";
 var detailsIngredients;
 var shoppingList = [];
 
 function renderResults(response) {
+    console.log(response);
     $("#homepage").hide();
     $("#search-results").show();
     $("#recipeResults").empty();
@@ -40,6 +42,15 @@ function renderResults(response) {
         resultDiv.append(resultTemplate);
         $('#recipeResults').prepend(resultDiv);
     }
+
+    if(resultsArray.length!=0){
+        $('#recipeResults').append(`<div class="col-10"></div>`)
+        $('#recipeResults').append(`<div class="col-2"><button id="btn-more" class="btn btn-sm btn-outline-secondary" style="background-color:white">More>>></button></div>`);
+        $("#btn-more").on("click",function(){
+            console.log(response.offset+response.number)
+            searchRecipes(searchQuery,response.offset+response.number);
+        })
+    }    
 }
 
 function renderRestaurants(restaurants) {

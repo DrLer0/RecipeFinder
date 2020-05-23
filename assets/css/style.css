@@ -125,6 +125,20 @@ main {
     margin-left:16px;
 }
 
+
+.parallax {
+    /* The image used */
+    background-image: url("../images/homepage-jumbotron.jpg");
+    
+    /* Set a specific height */
+    /*height: 500px;*/
+    /* Create the parallax scrolling effect */
+   background-attachment: fixed;
+   background-position: center;
+   /*background-repeat: no-repeat;*/
+   /* background-repeat: repeat-y; */
+    background-size: cover;
+}
 .fly {
     opacity: 0;
     transition: all 600ms ease-in-out;
